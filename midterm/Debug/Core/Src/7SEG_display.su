@@ -1,0 +1,6 @@
+7SEG_display.c:43:6:drive7SEG	24	static
+7SEG_display.c:50:6:resetBuffer	4	static
+7SEG_display.c:54:6:increaseBuffer	4	static
+7SEG_display.c:59:6:decreaseBuffer	4	static
+7SEG_display.c:67:6:countdownBuffer	4	static
+7SEG_display.c:74:6:display7SEG	8	static
