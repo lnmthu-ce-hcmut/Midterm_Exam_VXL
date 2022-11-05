@@ -21,29 +21,18 @@ int timer2_flag = 0;
 
 
 void setTimer0(int duration) {
-	if(TIME_CYCLE > 0)
-	{
-		timer0_counter = duration / TIME_CYCLE;
-	}
-	else timer0_counter = duration;
+	timer0_counter = duration / TIME_CYCLE;
+	timer0_counter = duration;
 	timer0_flag = 0;
 }
 
 void setTimer1(int duration){
-	if(TIME_CYCLE > 0)
-	{
-		timer1_counter = duration / TIME_CYCLE;
-	}
-	else timer1_counter = duration;
+	timer1_counter = duration / TIME_CYCLE;
 	timer1_flag = 0;
 }
 
 void setTimer2(int duration){
-	if(TIME_CYCLE > 0)
-	{
-		timer2_counter = duration / TIME_CYCLE;
-	}
-	else timer2_counter = duration;
+	timer2_counter = duration / TIME_CYCLE;
 	timer2_flag = 0;
 }
 

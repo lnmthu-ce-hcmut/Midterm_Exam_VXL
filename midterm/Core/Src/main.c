@@ -19,13 +19,13 @@
 /* USER CODE END Header */
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
-#include "input_reading.h"
-#include "global.h"
-#include "fsm_simple_buttons_run.h"
-#include "led_display.h"
+
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-
+#include "timer.h"
+#include "input_reading.h"
+#include "fsm_simple_buttons_run.h"
+#include "led_display.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -100,7 +100,8 @@ int main(void)
   while (1)
   {
     /* USER CODE END WHILE */
-
+	  fsm_simple_buttons_run();
+	  ledBlink();
     /* USER CODE BEGIN 3 */
   }
   /* USER CODE END 3 */
@@ -214,19 +215,14 @@ static void MX_GPIO_Init(void)
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
   HAL_GPIO_Init(LED_RED_GPIO_Port, &GPIO_InitStruct);
 
-  /*Configure GPIO pins : LED7_0_Pin LED7_1_Pin LED7_2_Pin LED7_3_Pin
-                           LED7_4_Pin LED7_5_Pin LED7_6_Pin */
-  GPIO_InitStruct.Pin = LED7_0_Pin|LED7_1_Pin|LED7_2_Pin|LED7_3_Pin
-                          |LED7_4_Pin|LED7_5_Pin|LED7_6_Pin;
+  /*Configure GPIO pins : LED7_0_Pin LED7_1_Pin LED7_2_Pin RSSET_Pin
+                           INC_Pin DEC_Pin LED7_3_Pin LED7_4_Pin
+                           LED7_5_Pin LED7_6_Pin */
+  GPIO_InitStruct.Pin = LED7_0_Pin|LED7_1_Pin|LED7_2_Pin|RSSET_Pin
+                          |INC_Pin|DEC_Pin|LED7_3_Pin|LED7_4_Pin
+                          |LED7_5_Pin|LED7_6_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
-  GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
-  HAL_GPIO_Init(GPIOB, &GPIO_InitStruct);
-
-  /*Configure GPIO pins : RSSET_Pin INC_Pin DEC_Pin */
-  GPIO_InitStruct.Pin = RSSET_Pin|INC_Pin|DEC_Pin;
-  GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
-  GPIO_InitStruct.Pull = GPIO_PULLUP;
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
   HAL_GPIO_Init(GPIOB, &GPIO_InitStruct);
 
